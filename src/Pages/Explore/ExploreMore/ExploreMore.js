@@ -1,12 +1,32 @@
 import React from 'react';
-import { Col } from 'react-bootstrap';
+import { Card, Col,Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ExploreMore = (props) => {
-     const {name} = props.product
+     const {
+          _id,
+          name,
+          description,
+          color,
+          fuel,
+          img,
+          mile,
+          model,
+          price,
+          type } = props.product
      return (
           <Col>
-               {name}
-          </Col>
+               <Card >
+                    <Card.Img className="img-fluid"  variant="top" src={img} />
+                    <Card.Body>
+                    <Card.Title>{name}</Card.Title>
+                    <Card.Subtitle>{description}</Card.Subtitle>
+                    <Link to={`/purchase/${_id}`}>
+                    <Button variant="primary">Purchase</Button>
+                    </Link>
+                    </Card.Body>
+               </Card>
+     </Col>
      );
 };
 

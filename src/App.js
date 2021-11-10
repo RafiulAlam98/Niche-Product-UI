@@ -34,6 +34,9 @@ function App() {
             <Route path='/explore'>
               <Explore></Explore>
             </Route>
+            <PrivateRoute path="/purchase/:carId">
+              <Purchase></Purchase>
+            </PrivateRoute>
             <PrivateRoute path='/purchase'>
               <Purchase></Purchase>
             </PrivateRoute>

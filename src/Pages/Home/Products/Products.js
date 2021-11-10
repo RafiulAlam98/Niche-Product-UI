@@ -11,7 +11,7 @@ const Products = () => {
           fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
           .then(res => res.json())
           .then(data => {
-               console.log(data)
+               // console.log(data)
                setProducts(data)
           })
      },[])
@@ -19,7 +19,7 @@ const Products = () => {
      return (
           <Container>
                <h1>OUR PRODUCTS</h1>
-               <Row xs={12} sm={12} md={6} lg={3}>
+               <Row xs={12}  lg={3}>
                   {products.map(product => <Product
                   product={product}
                   key={product._id}></Product>)}

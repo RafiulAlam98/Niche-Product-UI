@@ -9,14 +9,14 @@ const Explore = () => {
           fetch('http://localhost:5000/products')
           .then(res => res.json())
           .then(data => {
-               console.log(data)
+               // console.log(data)
                setProducts(data)
           })
      },[])
      return (
           <Container>
           <h2>this is product</h2>
-             <Row xs={12} sm={12} md={6} lg={3}>
+             <Row xs={12} lg={12}>
                   {products.map(product => 
                   <ExploreMore 
                     product={product}
