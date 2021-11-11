@@ -97,11 +97,11 @@ const Purchase = () => {
 
                                    {errors.phone && <span>This field is required</span>}
 
-                                   <input className="mb-3"  defaultValue={findProduct?.name}  {...register("place", { required: true })} />
+                                   <input className="mb-3"  defaultValue={findProduct?.name}  {...register("brand", { required: true })} />
 
                                    {errors.place && <span>This field is required</span>}
 
-                                   <input className="mb-3" placeholder={"Status"}  defaultValue={"pending"}  {...register("status", { required: true })} />
+                                   <input className="mb-3" placeholder={"Status"}  defaultValue={"PENDING"}  {...register("status", { required: true })} />
 
                                    {errors.status && <span>This field is required</span>}
                                    
