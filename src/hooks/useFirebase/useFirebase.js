@@ -8,47 +8,59 @@ import {  getAuth,
 } from "firebase/auth";
 
 import initializeAuthentication from './../../Pages/Login/Firebase/firebase.init';
-import { useHistory, useLocation } from 'react-router';
 
 
 initializeAuthentication()
 const useFirebase = () =>{
+
      const [user,setUser] = useState({})
      const [isLoading,setIsLoading] = useState(true)
      const [authError, setAuthError] = useState('')
-     // const location = useLocation();
-     // const history = useHistory()
-     // const redirectUrl = location.state?.from || '/home';
      const auth = getAuth()
 
 
      // register an user
-     const registerUser = (name, email, password) => {
+     const registerUser = (name, email, password,history) => {
           setIsLoading(true)
           createUserWithEmailAndPassword(auth,email, password)
                .then((result) => {
-               const user = result.user;
-               console.log(user)
-               setUser(user)
-               // history.push(redirectUrl)
+               console.log(result.user)
+               const newUser = {email, displayName:name}
+               setUser(newUser)
+
+               // send name to firebase after creation
+
+               updateProfile(auth.currentUser, {
+                    displayName: name
+                  }).then(() => {                    
+                  }).catch((error) => {                    
+                  });
+               setAuthError('')
+               history.push('/')
           })
           .catch((error) => {
                console.log(error.message);
+               setAuthError(error.message)
                
           })
           .finally(()=>setIsLoading(false));
      }
 
+
      // login the user
-     const signInUser = (email,password) =>{
+     const signInUser = (email, password, location, history) =>{
           signInWithEmailAndPassword(auth, email, password)
           .then((result) => {
-               const user = result.user;
-               setUser(user)
-               // history.push(redirectUrl)
+               const destination = location?.state?.from || '/';
+               history.replace(destination);
+
+               setUser(result.user)
+               setAuthError('')
+               
           })
           .catch((error) => {
-               console.log(error.message);
+               console.log(error.message)
+               setAuthError(error.message)
           });
      }
 

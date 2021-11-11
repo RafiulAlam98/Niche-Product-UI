@@ -1,26 +1,23 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import useAuth from './../../../hooks/useAuth/useAuth';
 
 const Register = () => {
           const { register, handleSubmit,reset,formState: { errors } } = useForm();
+          const history = useHistory()
 
           const {registerUser} = useAuth()
 
           const onSubmit = data => {
                console.log(data.email,data.password,data.name)
-               registerUser(data.email,data.password,data.name)
+               registerUser(data.name, data.email, data.password, history)
+               reset(data)
           };
      return (
           <>
-               <form 
-               sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    p: 1,
-                    m: 1,
-               }}
-               onSubmit={handleSubmit(onSubmit)}>
+               <form onSubmit={handleSubmit(onSubmit)}>
                 
                     <input placeholder="Name" {...register("name", { required: true })} />
                     
@@ -35,7 +32,11 @@ const Register = () => {
                     {errors.password && <span>This field is required</span>}
                     
                     <input type="submit" />
-               </form>  
+               </form>
+
+               <Link to='/login'>
+                    <h6>Already Register?</h6>
+               </Link> 
           </>
      );
 };

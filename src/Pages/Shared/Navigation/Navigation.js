@@ -15,6 +15,14 @@ const Navigation = () => {
                     <Nav.Link  as={HashLink}  to='/explore'>Explore</Nav.Link>
                     {/* <Nav.Link  as={HashLink}  to='/purchase'>Purchase</Nav.Link> */}
                     <Nav.Link  as={HashLink}  to='/dashboard'>Dashboard</Nav.Link>
+
+
+                    {
+                         user.email && <p>User: <span  className="text-dark">{user.displayName}</span></p>
+                    }
+
+
+
                     {
                          user.email ?
 
@@ -22,7 +30,7 @@ const Navigation = () => {
                          
                          :
                          <Nav.Link  as={HashLink}  to='/login'>Login</Nav.Link>
-                    }
+                    }                  
                </Nav>
                </Container>
                </Navbar>

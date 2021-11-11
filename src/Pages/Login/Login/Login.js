@@ -1,24 +1,23 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory, useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 import useAuth from './../../../hooks/useAuth/useAuth';
 
 const Login = () => {
      const { register, handleSubmit,formState: { errors } } = useForm();
      const {signInUser} = useAuth()
+
+     const location = useLocation();
+     const history = useHistory();
+
      const onSubmit = data => {
-          console.log(data)
-          signInUser(data.email,data.password)
+          // console.log(data)
+          signInUser(data.email, data.password, location, history)
      };
      return (
           <>
-               <form 
-                    sx={{
-                         display: 'flex',
-                         flexDirection: 'column',
-                         p: 1,
-                         m: 1,
-                    }}
-                    onSubmit={handleSubmit(onSubmit)}>
+               <form onSubmit={handleSubmit(onSubmit)}>
                          <input placeholder="Email" {...register("email", { required: true })} />
                          
                          {errors.email && <span>This field is required</span>}
@@ -29,6 +28,9 @@ const Login = () => {
                          
                          <input type="submit" />
                </form>  
+               <Link to='/register'>
+                    <h6>Not Yet Register? Register Now!</h6>
+               </Link>
                
           </>
      );
