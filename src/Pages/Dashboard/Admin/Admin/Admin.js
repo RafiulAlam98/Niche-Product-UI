@@ -11,6 +11,7 @@ import {
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddProducts from '../AddProducts/AddProducts';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 const Admin = () => {
      const {user,signOutUser} = useAuth()
@@ -22,6 +23,7 @@ const Admin = () => {
                <Link to={`${url}/manageAllOrder`}>Manage All Order</Link>
                <Link to={`${url}/makeAdmin`}>Make Admin</Link>
                <Link to={`${url}/addProducts`}>Add Product</Link>
+               <Link to={`${url}/manageProduct`}>Manage Product</Link>
                <button onClick={signOutUser}> 
                <Link to={`${url}/logout`}>Logout</Link>
                </button> 
@@ -35,6 +37,9 @@ const Admin = () => {
                               </Route>
                               <Route path={`${path}/addProducts`}>
                                    <AddProducts></AddProducts>
+                              </Route>
+                              <Route path={`${path}/manageProduct`}>
+                                  <ManageProducts></ManageProducts>
                               </Route>
                          </Switch>
 

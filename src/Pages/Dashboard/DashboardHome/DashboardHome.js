@@ -8,7 +8,7 @@ const DashboardHome = () => {
      return (
           <>
                <Admin></Admin>
-               <User></User>
+               {/* <User></User> */}
           </>
      );
 };
