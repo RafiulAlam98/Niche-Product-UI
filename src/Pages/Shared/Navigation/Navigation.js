@@ -1,41 +1,77 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from './../../../hooks/useAuth/useAuth';
 
 const Navigation = () => {
      const {user,signOutUser} = useAuth()
      return (
+
           <>
-              <Navbar bg="primary" variant="dark">
-               <Container>
-               <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-               <Nav className="me-auto">
-                    <Nav.Link  as={HashLink}  to ='/home'>Home</Nav.Link>
-                    <Nav.Link  as={HashLink}  to='/explore'>Explore</Nav.Link>
-                    {/* <Nav.Link  as={HashLink}  to='/purchase'>Purchase</Nav.Link> */}
-                    <Nav.Link  as={HashLink}  to='/dashboard'>Dashboard</Nav.Link>
-
-
-                    {
-                         user.email && <p>User: <span  className="text-dark">{user.displayName}</span></p>
-                    }
-
-
-
-                    {
-                         user.email ?
-
-                         <button onClick={signOutUser}>Logout</button>
+               <Navbar bg="secondary" variant="dark" expand="lg"  sticky="top">
+                    <Container fluid>
+                    
                          
-                         :
-                         <Nav.Link  as={HashLink}  to='/login'>Login</Nav.Link>
-                    }                  
-               </Nav>
-               </Container>
+                         <Navbar.Brand to="/home">
+                              <Nav.Link as={HashLink} className="text-warning" to="/home">
+                              <span className="head-col fw-bold">GLOBAL</span>
+                              <span className="text-color fw-bold"> VOYAGES</span>
+                              </Nav.Link>
+                         </Navbar.Brand>
+                         
+                              <Navbar.Toggle aria-controls="navbarScroll" />
+                              <Navbar.Collapse id="navbarScroll">
+                              <Nav className="me-auto">
+                              
+                              <Nav.Link as={HashLink} className="text-dark fw-bold" to="/home">
+                              Home
+                              </Nav.Link>
+                              
+                              <Nav.Link as={HashLink} className="text-dark fw-bold" to="/explore">
+                              Explore
+                              </Nav.Link>
+                              
+                              <Nav.Link as={HashLink} className="text-dark fw-bold" to="/dashboard">
+                              Dashboard
+                              </Nav.Link>
+                              
+                              <Navbar.Text className="fw-bold">
+                              {
+                              user.email && <Navbar.Brand className="text-dark fw-bold mx-5" >Signed In As: <span className="text-warning">{user.displayName}</span></Navbar.Brand>
+                              }
+                              </Navbar.Text>
+                              
+                              {user.email ?  (
+                              <Button onClick={signOutUser} variant="dark" type="submit" className="text-warning ">
+                              SIGN OUT
+                              </Button>
+                              ) : (
+                              <Nav.Link as={HashLink}  className="fw-bold" to="/login">
+                                   Sign In
+                              </Nav.Link>
+                              )}
+                              
+                              
+                              
+                              </Nav>
+
+                              </Navbar.Collapse>
+                         
+                    </Container>
                </Navbar>
           </>
      );
 };
 
 export default Navigation;
+
+
+
+
+
+
+
+
+
+
+
