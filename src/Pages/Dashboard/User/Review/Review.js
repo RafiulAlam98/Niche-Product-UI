@@ -4,7 +4,7 @@ import Rating from 'react-rating';
 import useAuth from './../../../../hooks/useAuth/useAuth';
 
 const Review = () => {
-     const {user} = useAuth()
+    
      const [name,setName] = useState('')
      const [reviews,setReviews] = useState('')
      const [rating, setRating] = useState(0)
@@ -65,11 +65,7 @@ const Review = () => {
                     <Button onClick={handleSubmit}>Submit Review</Button>
                </Form>
 
-               <Rating
-               initialRating={3}
-               emptySymbol="far fa-star"
-               fullSymbol="fas fa-star"
-               readonly />
+              
           </div>
      );
 };
