@@ -101,7 +101,7 @@ const Purchase = () => {
 
                                    {errors.place && <span>This field is required</span>}
 
-                                   <input className="mb-3" placeholder={"Status"}  defaultValue={"PENDING"}  {...register("status", { required: true })} />
+                                   <input className="mb-3" placeholder={"Status"}  defaultValue={"PENDING"}  {...register("Status", { required: true })} />
 
                                    {errors.status && <span>This field is required</span>}
                                    

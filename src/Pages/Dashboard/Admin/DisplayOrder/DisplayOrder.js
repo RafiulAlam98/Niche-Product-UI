@@ -8,22 +8,28 @@ const DisplayOrder = (props) => {
           email, 
           name, 
           phone, 
-          status, 
+          Status, 
           _id
      } = props.allOrder
 
 
-     const handleUpdate = (id) =>{
-          console.log(id)
-          fetch(``,{
+     const handleUpdate = id =>{
+          fetch(`http://localhost:5000/users/${id}`,{
                method:'PUT',
                headers:{
-                    'content-type': 'application/json'
+                    "content-type": "application/json",
                },
-               body:JSON.stringify(id)
+               body:JSON.stringify(props)
+
+          })
+          .then(res => res.json())
+          .then(data =>{
+               if(data.modifiedCount>0){
+                    alert('User Updated Successfully')
+               }
+               console.log(data)
           })
      }
-     
      return (
           <Col xs={12} md={6} lg={3}>
                <div className="manage-container mt-2 mb-4">
@@ -31,11 +37,11 @@ const DisplayOrder = (props) => {
                     <p>Email: {email}</p>
                     <p>Name: {name}</p>
                     <p>Address: {address}</p>
-                    <p>Status: {status}</p>
+                    <p>Status: {Status}</p>
                    
 
-                    <Button variant="dark" className="text-warning" onClick={()=> handleUpdate(_id)}>Upadte Status
-                    
+                    <Button variant="dark" className="text-warning" onClick={()=> handleUpdate(_id)}>
+                         Update Status
                     </Button>
                </div>
           </Col>

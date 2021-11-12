@@ -4,15 +4,33 @@ import useAuth from './../../../../hooks/useAuth/useAuth';
 
 const MakeAdmin = () => {
      const {user} = useAuth()
-     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
+
      const onSubmit = data => {
-          console.log(data)
+          reset(data)
+          fetch(`http://localhost:5000/users/admin/${data.email}`, {
+               method:'PUT',
+               headers:{
+                    'content-type': 'application/json'
+               },
+               body:JSON.stringify(data)
+          })
+          .then(res=>res.json())
+          .then(data => {
+               if(data.modifiedCount > 0){
+                    alert('User Added Role as Admin')
+               }
+          })
+          
      };
+
+
      return (
           <div>
                <form onSubmit={handleSubmit(onSubmit)}>
                    
-                    <input defaultValue={user.email} {...register("email", { required: true })} />
+                    <input  {...register("email", { required: true })} />
                     
                     {errors.exampleRequired && <span>This field is required</span>}
                     

@@ -16,6 +16,7 @@ const useFirebase = () =>{
      const [user,setUser] = useState({})
      const [isLoading,setIsLoading] = useState(true)
      const [authError, setAuthError] = useState('')
+     const [admin,setAdmin] = useState([])
      const auth = getAuth()
 
 
@@ -27,6 +28,9 @@ const useFirebase = () =>{
                console.log(result.user)
                const newUser = {email, displayName:name}
                setUser(newUser)
+
+               // save user to database
+               saveUser(email,name)
 
                // send name to firebase after creation
 
@@ -87,14 +91,41 @@ const useFirebase = () =>{
              .finally(() => setIsLoading(false));
      }
 
+     console.log(user?.email)
+     // check admin
+     useEffect(() => {
+        fetch(`http://localhost:5000/users/admin/${user.email}`)
+        .then(res => res.json())
+        .then(data =>{
+             console.log(data.admin)
+             setAdmin(data.admin)
+        })
+      }, [user.email])
 
+     // save users to database
+     const saveUser = (email,displayName) =>{
+          const user = {email, displayName}
+          fetch('http://localhost:5000/signed/users',{
+               method:'POST',
+               headers:{
+                    'content-type': 'application/json'
+               },
+               body:JSON.stringify(user)
+     })
+     .then(res=> res.json())
+     .then(data => {
+          console.log(data)
+     })
+
+}
      return{
           user,
           authError,
           registerUser,
           signInUser,
           isLoading,
-          signOutUser
+          signOutUser,
+          admin
      }
 
 }
