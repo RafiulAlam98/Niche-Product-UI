@@ -8,7 +8,7 @@ const ManageOrder = ({order}) => {
      const handleDelete = id =>{
           const proceed = window.confirm('Are You proceed to Cancel the Order?')
           console.log(id)
-          fetch(`http://localhost:5000/users/${id}`,{
+          fetch(`https://polar-depths-02085.herokuapp.com/users/${id}`,{
                method: "DELETE",
           })
           .then(res => res.json())

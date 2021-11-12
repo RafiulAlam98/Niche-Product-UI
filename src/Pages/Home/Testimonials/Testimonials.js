@@ -8,6 +8,7 @@ const Testimonials = () => {
                <div className="">
                          <h1 className="text-primary">WE ARE THE BEST</h1>
                </div>
+               
                <Container>
                     <Row className="testimonial-container pb-5">                                                 
                          <Col sm={6} md={6} lg={6} className="mt-2 " >

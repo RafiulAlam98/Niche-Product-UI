@@ -14,7 +14,7 @@ const DisplayOrder = (props) => {
 
 
      const handleUpdate = id =>{
-          fetch(`http://localhost:5000/users/${id}`,{
+          fetch(`https://polar-depths-02085.herokuapp.com/users/${id}`,{
                method:'PUT',
                headers:{
                     "content-type": "application/json",

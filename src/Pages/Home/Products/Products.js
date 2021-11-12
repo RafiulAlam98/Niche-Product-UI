@@ -8,7 +8,7 @@ const Products = () => {
      const size = 6;
 
      useEffect(()=>{
-          fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
+          fetch(`https://polar-depths-02085.herokuapp.com/products?page=${page}&&size=${size}`)
           .then(res => res.json())
           .then(data => {
                // console.log(data)

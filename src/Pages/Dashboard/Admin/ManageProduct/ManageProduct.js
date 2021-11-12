@@ -5,7 +5,7 @@ const ManageProduct = ({product}) => {
      const {name,  color, description, _id, img,price,model} = product
 
      const handleDelete = id =>{
-          fetch(`http://localhost:5000/products/${id}`,{
+          fetch(`https://polar-depths-02085.herokuapp.com/products/${id}`,{
                method:"DELETE"
           })
           .then(res => res.json())

@@ -13,7 +13,7 @@ const Purchase = () => {
      const [singleProduct, setSingleProduct] = useState({})
 
      useEffect(()=>{
-          fetch(`http://localhost:5000/products?carId=${carId}`)
+          fetch(`https://polar-depths-02085.herokuapp.com/products?carId=${carId}`)
           .then(res => res.json())
           .then(data => {
                // console.log(data)
@@ -26,7 +26,7 @@ const Purchase = () => {
      // setSingleProduct(findProduct)
      const onSubmit = data =>{ 
 
-          fetch('http://localhost:5000/users',{
+          fetch('https://polar-depths-02085.herokuapp.com/users',{
                method:'POST',
                headers:{
                     'content-type':'application/json'

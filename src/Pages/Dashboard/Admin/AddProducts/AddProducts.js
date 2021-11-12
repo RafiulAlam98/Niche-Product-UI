@@ -7,7 +7,7 @@ const AddProducts = () => {
 
           const onSubmit = data =>{
                console.log(data)
-               fetch('http://localhost:5000/add/products', {
+               fetch('https://polar-depths-02085.herokuapp.com/add/products', {
                     method:'POST',
                     headers:{
                          'content-type':'application/json'
