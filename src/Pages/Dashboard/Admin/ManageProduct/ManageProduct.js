@@ -15,14 +15,14 @@ const ManageProduct = ({product}) => {
      }
      return (
           <Col xs={12} md={12} lg={12}>
-                <Card className="service-container mt-5 mb-5">
+                <Card className="mt-5 mb-5">
                    <Card.Img className="img-fluid" src={img}></Card.Img>
                    <Card.Body>
-                   <Card.Title className="head-col fw-bold mb-3">{name}</Card.Title>
-                   <Card.Title className="head-col fw-bold mb-3">{color}</Card.Title>
-                   <Card.Subtitle className="mb-2 text-color mb-3"><span className="text-dark">{description}</span> {description}</Card.Subtitle>
-                   <Card.Subtitle className="mb-2 text-color">{price}</Card.Subtitle>
-                   <Card.Subtitle className="mb-2 text-color">Status: {model}</Card.Subtitle>
+                   <Card.Title className="fw-bold mb-3">{name}</Card.Title>
+                   <Card.Title className=" fw-bold mb-3">{color}</Card.Title>
+                   <Card.Subtitle className="mb-2  mb-3"><span className="text-dark">{description}</span> {description}</Card.Subtitle>
+                   <Card.Subtitle className="mb-2">{price}</Card.Subtitle>
+                   <Card.Subtitle className="mb-2">Status: {model}</Card.Subtitle>
                    {/* <Card.Text className="mb-2 text-color mb-3">
                         <span className="text-dark">Booking For: </span>    {place}
                    </Card.Text> */}

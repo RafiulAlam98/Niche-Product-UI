@@ -12,8 +12,7 @@ const Banner = () => {
                          alt="First slide"
                     />
                     <Carousel.Caption>
-                         <h1>WELCOME TO AUTOPILOT CAR</h1>
-                         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                         <h1>WELCOME TO AUTO CAR</h1>
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -25,7 +24,6 @@ const Banner = () => {
 
                     <Carousel.Caption>
                          <h1>FIND YOUR DREAM CAR</h1>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -37,7 +35,6 @@ const Banner = () => {
 
                     <Carousel.Caption>
                          <h1>BEST PLACE FOR SELL CAR!</h1>
-                         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                     </Carousel.Caption>
                     </Carousel.Item>
                </Carousel>  

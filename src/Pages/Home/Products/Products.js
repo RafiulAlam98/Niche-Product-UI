@@ -17,13 +17,16 @@ const Products = () => {
      },[])
 
      return (
-          <Container>
-               <h1>OUR PRODUCTS</h1>
-               <Row xs={12}  lg={3}>
-                  {products.map(product => <Product
-                  product={product}
-                  key={product._id}></Product>)}
-               </Row>
+          <Container fluid className="card-style">
+               <h1 className=" text-primary">OUR PRODUCTS</h1>
+               <Container>
+                    <Row >
+                         {products.map(product => <Product
+                         product={product}
+                         key={product._id}></Product>)}
+                    </Row>
+               </Container>
+             
 
           </Container>
      );
