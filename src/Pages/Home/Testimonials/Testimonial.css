@@ -1,0 +1,27 @@
+.testimonial-container {
+     background-color: #DBE8D3;
+
+}
+
+.testimonial-card{
+     background-color: #F3E0BE;
+}
+
+
+@media only screen and (max-width: 688px) {
+     .testimonial-container {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+     }
+   }
+   
+   @media only screen and (min-width: 689px) and (max-width: 992px) {
+    .testimonial-container {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+     }
+   }

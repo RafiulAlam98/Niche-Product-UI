@@ -14,8 +14,9 @@ const Navigation = () => {
                          
                          <Navbar.Brand to="/home">
                               <Nav.Link as={HashLink} className="text-warning" to="/home">
-                              <span className="head-col fw-bold">GLOBAL</span>
-                              <span className="text-color fw-bold"> VOYAGES</span>
+                              <span className="head-col fw-bold">SHIFT </span>
+                              <span className="head-col fw-bold">INTO</span>
+                              <span className="text-color fw-bold"> GEAR</span>
                               </Nav.Link>
                          </Navbar.Brand>
                          

@@ -17,8 +17,8 @@ const Products = () => {
      },[])
 
      return (
-          <Container fluid className="card-style">
-               <h1 className=" text-primary">OUR PRODUCTS</h1>
+          <Container fluid className="card-style pt-4">
+               <h1 className="text-primary">OUR PRODUCTS</h1>
                <Container>
                     <Row >
                          {products.map(product => <Product

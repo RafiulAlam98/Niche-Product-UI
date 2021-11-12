@@ -6,7 +6,7 @@ const Review = (props) => {
      const {name, review, rating} = props.review
      return (
           <Col sm={12} md={6} lg={4}>
-          <Card className="service-container head-col">
+          <Card className="card-style head-col">
                <Card.Body>
                <Card.Title className="fw-bold">{name}</Card.Title>
                <Card.Subtitle>{review}</Card.Subtitle>

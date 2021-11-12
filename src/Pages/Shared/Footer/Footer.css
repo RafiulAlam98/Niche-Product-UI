@@ -1,0 +1,27 @@
+.footer-container {
+     background-color:#5A3E36 ;
+     height: 440px;
+   }
+
+   .footer-style{
+        color: #CE5B78;
+   }
+   
+   .footer-text {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+   }
+   
+   @media only screen and (max-width:688px) {
+     .footer-container {
+       height: 1045px;
+     }
+   }
+   
+   @media only screen and (min-width:688px) and (max-width:992px) {
+     .footer-container {
+       height: 400px;
+     }
+   }

@@ -1,3 +1,13 @@
 .card-style{
      background-color:#F0EAD6;
 }
+.card-text{
+     color: #E15D44;
+}
+
+.card-detail{
+     margin-top: -80px;
+     background-color: #F7CAC9;
+     padding: 10px;
+     border-radius: 5px;
+}

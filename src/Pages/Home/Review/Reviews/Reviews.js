@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import Review from '../Review/Review';
+import './Reviews.css'
 
 const Reviews = () => {
      const [reviews, setReviews] = useState([])
@@ -14,7 +15,10 @@ const Reviews = () => {
           })
      },[])
      return (
-          <Container>
+          <Container className="review-style p-5" fluid >
+               <h1 className="text-primary mb-5 ">
+               REVIEW CATEGORY
+               </h1>
                <Row>
                     {
                          reviews.map(review => <Review 

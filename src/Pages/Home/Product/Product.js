@@ -20,16 +20,16 @@ const Product = (props) => {
      return (
           
           <Col xs={12} md={12} lg={6}>
-                <Card className="card-style mt-5 mb-5">
+                <Card className="card-style mt-3 mb-5 ">
                    <Card.Img className="img-fluid" src={img}></Card.Img>
-                   <Card.Body>
-                   <Card.Title className="fw-bold mb-3">{name}</Card.Title>
-                   <Card.Title className=" fw-bold mb-3">{description}</Card.Title>
-                   <Card.Subtitle className="mb-2  mb-3"><span className="text-dark">{description}</span> {description}</Card.Subtitle>
-                   <Card.Subtitle className="mb-2">{price}</Card.Subtitle>
-                   <Card.Subtitle className="mb-2">Model: {model}</Card.Subtitle>
+                   <Card.Body className="d-flex flex-column justify-content-start align-items-start">
+                         <Card.Title className="fw-bold  card-text card-detail">{description}</Card.Title>
+                         <Card.Subtitle className=" fw-bold mb-3 mt-4 card-text">Brand:{name}</Card.Subtitle>
+                         <Card.Subtitle className="mb-3 card-text">Color: {color}</Card.Subtitle>
+                         <Card.Subtitle className="mb-3 card-text">Price: {price}</Card.Subtitle>
+                         <Card.Subtitle className="mb-3 card-text">Model: {model}</Card.Subtitle>
                    <Link to={`/purchase/${_id}`}>
-                    <Button variant="primary">Purchase</Button>
+                    <Button variant="dark" className="text-warning">Purchase</Button>
                     </Link>
                    </Card.Body>
               </Card>
