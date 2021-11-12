@@ -1,10 +1,10 @@
 .footer-container {
-     background-color:#5A3E36 ;
-     height: 440px;
+     background-color: #0C1226;
+     height: 500px;
    }
 
    .footer-style{
-        color: #CE5B78;
+        color: #F3E0BE;
    }
    
    .footer-text {
@@ -16,12 +16,12 @@
    
    @media only screen and (max-width:688px) {
      .footer-container {
-       height: 1045px;
+       height: 1212px;
      }
    }
    
    @media only screen and (min-width:688px) and (max-width:992px) {
      .footer-container {
-       height: 400px;
+       height: 500px;
      }
    }

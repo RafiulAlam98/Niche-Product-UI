@@ -24,21 +24,21 @@ const Navigation = () => {
                               <Navbar.Collapse id="navbarScroll">
                               <Nav className="me-auto">
                               
-                              <Nav.Link as={HashLink} className="text-dark fw-bold" to="/home">
+                              <Nav.Link as={HashLink} className="text-info fw-bold fs-5" to="/home">
                               Home
                               </Nav.Link>
                               
-                              <Nav.Link as={HashLink} className="text-dark fw-bold" to="/explore">
+                              <Nav.Link as={HashLink} className="text-warning fw-bold fs-5" to="/explore">
                               Explore
                               </Nav.Link>
                               
-                              <Nav.Link as={HashLink} className="text-dark fw-bold" to="/dashboard">
+                              <Nav.Link as={HashLink} className="text-warning fw-bold fs-5" to="/dashboard">
                               Dashboard
                               </Nav.Link>
                               
                               <Navbar.Text className="fw-bold">
                               {
-                              user.email && <Navbar.Brand className="text-dark fw-bold mx-5" >Signed In As: <span className="text-warning">{user.displayName}</span></Navbar.Brand>
+                              user.email && <Navbar.Brand className="text-dark fw-bold mx-5 fs-5" >Signed In As: <span className="text-warning">{user.displayName}</span></Navbar.Brand>
                               }
                               </Navbar.Text>
                               
@@ -47,7 +47,7 @@ const Navigation = () => {
                               SIGN OUT
                               </Button>
                               ) : (
-                              <Nav.Link as={HashLink}  className="fw-bold" to="/login">
+                              <Nav.Link as={HashLink}  className="fw-bold fs-5" to="/login">
                                    Sign In
                               </Nav.Link>
                               )}
