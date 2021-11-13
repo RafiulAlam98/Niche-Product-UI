@@ -14,15 +14,17 @@ const Explore = () => {
           })
      },[])
      return (
-          <Container>
-          <h2>this is product</h2>
-             <Row xs={12} lg={12}>
-                  {products.map(product => 
-                  <ExploreMore 
-                    product={product}
-                    key={product._id}
-                  ></ExploreMore>)}
-               </Row>
+          <Container className="card-style pt-4" fluid >
+               <h2 className="header-text">Explore More Products!</h2>
+               <Container>
+                    <Row>
+                         {products.map(product => 
+                         <ExploreMore 
+                              product={product}
+                              key={product._id}
+                         ></ExploreMore>)}
+                    </Row>
+               </Container>
 
           </Container>
      );

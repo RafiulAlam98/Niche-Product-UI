@@ -1,0 +1,24 @@
+.container-input{
+     border-bottom: 2px solid grey ;
+     border-top: 0px;
+     border-right: 0px;
+     border-left: 0px;
+}
+
+.form-input{
+     width: 50%;
+}
+
+@media only screen and (max-width: 688px) {
+    
+      .form-input{
+       width: 100%;
+     }
+   }
+   
+   @media only screen and (min-width: 689px) and (max-width: 992px) {
+    
+    .form-input{
+      width: 100%;
+    }
+   }

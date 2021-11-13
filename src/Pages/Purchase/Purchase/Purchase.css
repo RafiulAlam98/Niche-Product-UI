@@ -1,0 +1,36 @@
+.container-body{
+     background-color: lightgrey;
+  }
+
+.header-text{
+     color:#B55A30;
+}
+
+  .form-container{
+   width: 50%;
+   background-color: #6B5B95;
+   border-radius: 20px; 
+ }
+
+  .order-container{
+    background-color: #DBE8D3;
+  }
+  
+  
+  @media only screen and (max-width: 688px) {
+    .order-container{
+      display: block;
+    }
+     .form-container{
+      width: 100%;
+    }
+  }
+  
+  @media only screen and (min-width: 689px) and (max-width: 992px) {
+   .order-container{
+     display: block;
+   }
+   .form-container{
+     width: 100%;
+   }
+  }

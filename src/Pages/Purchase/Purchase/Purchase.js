@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import useAuth from './../../../hooks/useAuth/useAuth';
+import './Purchase.css'
 
 const Purchase = () => { 
      const { register, handleSubmit,reset, formState: { errors } } = useForm();
@@ -10,7 +12,7 @@ const Purchase = () => {
      // console.log(carId)
      const {user} = useAuth()
      const [products,setProducts] = useState([])
-     const [singleProduct, setSingleProduct] = useState({})
+
 
      useEffect(()=>{
           fetch(`https://polar-depths-02085.herokuapp.com/products?carId=${carId}`)
@@ -37,7 +39,7 @@ const Purchase = () => {
           .then(data=>{
                console.log(data)
                if (data?.insertedId){
-                    alert('User Added Successfully.')
+                    alert('User Added Successfully')
                     reset(data)
                }
           })
@@ -49,64 +51,72 @@ const Purchase = () => {
 
      return (
           <>
-                 <Container fluid>
-                   <Row className="pb-5">
+               <Container className="container-body" fluid>
+                    <Container>
+                         <Row className="pb-5">
 
-                    <div className="mt-3 mb-5">
-                         <h4 className="">Purchase Information</h4>
-                         <h1 className=""></h1>
-                    </div>
-               
-                         <Col xs={12} md={6} lg={6}>
-                              <img src={findProduct?.img} className="img-fluid rounded-2" alt="" /> 
-                              <h5 className="head-col mt-2">{findProduct?.description}</h5>
-                         </Col>
-                         <Col xs={12} md={6} lg={6} >
-                             
-                              <h6 className="text-color">Brand: {findProduct?.name}</h6>
-                              <h6 className="text-color">Model: {findProduct?.model}</h6>
-                              <h5 className="head-col">Color: {findProduct?.color}</h5>
-                              <h6 className="text-color">Fuel System: {findProduct?.fuel}</h6>
-                              <h5 className="head-col">CC : {findProduct?.mile}</h5>
-                              <h5 className="head-col">Type: {findProduct?.type}</h5>
-                              <h6 className="text-color">Price: {findProduct?.price}</h6>
-                         </Col>
-                    </Row>
+                              <div className="mt-3 mb-5">
+                                   <h2 className="header-text">PURCHASE   INFORMATION</h2>
+                              </div>
+
+                              <Col xs={12} md={6} lg={6}>
+                                   <img src={findProduct?.img} className="img-fluid rounded-2" alt="" /> 
+                                   <h1 className="text-danger mt-2">{findProduct?.description}</h1>
+                              </Col>
+                              <Col xs={12} md={6} lg={6} className="d-flex flex-column align-items-end justify-content-center">
+                                   <h3 className="text-primary"> {findProduct?.name}</h3>
+                                   <h3 className="text-primary">{findProduct?.model} MODEL</h3>
+                                   <h3 className="text-primary"> {findProduct?.color} Variant</h3>
+                                   <h3 className="text-primary">{findProduct?.fuel} Fuel System</h3>
+                                   <h3 className="text-primary">{findProduct?.mile} CC</h3>
+                                   <h3 className="text-primary"> {findProduct?.type} CAR</h3>
+                                   <h3 className="text-primary">{findProduct?.price}</h3>
+                              </Col>
+                         </Row>
+                    </Container>
                </Container>
 
-               <Container fluid className="container-body">
-                    <Row>
+               <Container className="order-container" fluid>
+                    <Row className=" mx-auto">
                          <Col xs={12} md={12} lg={12} className="mb-5 mt-2">
 
                             
-                              <form className="d-flex flex-column mt-5 justify-content-center mx-auto pb-4 px-5  form-container" onSubmit={handleSubmit(onSubmit)}>
-                              <h3 className="mt-3 mb-4 head-col">Register For Booking</h3>
-                                   <input className="mb-3" defaultValue={user.displayName} {...register("name",{ required: true }) } />
-
-                                   {errors.name && <span>This field is required</span>}
+                              <form className="d-flex flex-column mt-5 justify-content-center mx-auto pb-4 px-3  form-container" onSubmit={handleSubmit(onSubmit)}>
+                              <h3 className="mt-3 mb-4 text-warning">REGISTER</h3>
+                                   <input className="mb-3 bg-transparent text-white border-0 border-bottom" 
                                    
-                                   <input className="mb-3" defaultValue={user.email} {...register("email", { required: true })} />
+                                   defaultValue={user.displayName}  {...register("name",{ required: true }) } />
+
+                                   {errors.name && <span className="text-danger">This field is required</span>}
+                                   
+                                   <input className="mb-3 bg-transparent text-white border-0 border-bottom" 
+                                   
+                                   defaultValue={user.email} {...register("email", { required: true })} />
                               
-                                   {errors.email && <span>This field is required</span>}
+                                   {errors.email && <span className="text-danger">This field is required</span>}
 
-                                   <input className="mb-3" placeholder="Address Field" {...register("address", { required: true })} />
+                                   <input className="mb-3 bg-transparent text-white border-0 border-bottom" placeholder="Address Field" {...register("address", { required: true })} />
 
-                                   {errors.address && <span>This field is required</span>}
+                                   {errors.address && <span className="text-danger">This field is required</span>}
 
-                                   <input className="mb-3"  placeholder="Phone Number" {...register("phone", { required: true })} />
+                                   <input className="mb-3 bg-transparent text-white border-0 border-bottom"  placeholder="Phone Number" {...register("phone", { required: true })} />
 
-                                   {errors.phone && <span>This field is required</span>}
+                                   {errors.phone && <span className="text-danger">This field is required</span>}
 
-                                   <input className="mb-3"  defaultValue={findProduct?.name}  {...register("brand", { required: true })} />
-
-                                   {errors.place && <span>This field is required</span>}
-
-                                   <input className="mb-3" placeholder={"Status"}  defaultValue={"PENDING"}  {...register("Status", { required: true })} />
-
-                                   {errors.status && <span>This field is required</span>}
+                                   <input className="mb-3 bg-transparent text-white border-0 border-bottom"  defaultValue={findProduct?.name}
                                    
-                                   <input type="submit" />
+                                   {...register("brand", { required: true })} />
+
+                                   {errors.place && <span className="text-danger">This field is required</span>}
+
+                                   <input className="mb-3 bg-transparent text-white border-0 border-bottom" placeholder={"Status"}  defaultValue={"PENDING"}  {...register("Status", { required: true })} />
+
+                                   {errors.status && <span className="text-danger">This field is required</span>}
                                    
+                                  
+                                 
+                                   <input className="bg-secondary border-0 text-warning fw-bold fs-4 w-50 mx-auto" type="submit" />
+                                  
                               </form>
                          </Col>
                     </Row>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import Rating from 'react-rating';
-import useAuth from './../../../../hooks/useAuth/useAuth';
+import { Form, Button, Container } from 'react-bootstrap';
+import './Review.css'
+
+
 
 const Review = () => {
     
@@ -43,30 +44,31 @@ const Review = () => {
 
      // console.log(user.email)
      return (
-          <div>
-               <h2>Review Here</h2>
+          <Container fluid className="pt-4">
 
-               <Form className="w-50 mx-auto">
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Reviewer Name</Form.Label>
-                    <Form.Control  onBlur={handleName} type="email" placeholder="name@example.com" />
+               <h2 className="header-text mt-3 mb-3 ">PLEASE MAKE A REVIEW </h2>
+                 
+               <Form className="d-flex flex-column mt-3 justify-content-center mx-auto pb-4 px-3 form-input dashboard-row ">
+                    <Form.Group  controlId="exampleForm.ControlInput1">
+                         <Form.Label className="text-white">Reviewer Name</Form.Label>
+                         <Form.Control className="mb-3 bg-transparent text-white container-input"   onBlur={handleName} type="email" placeholder="YOUR NAME" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Example textarea</Form.Label>
-                    <Form.Control onBlur={handleReview} as="textarea" rows={5} />
+                         <Form.Label className="text-white">Example textarea</Form.Label>
+                         <Form.Control className="mb-3 bg-transparent  container-input"  onBlur={handleReview} as="textarea"  placeholder="YOUR REVIEW" rows={4} />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Rating</Form.Label>
-                    <Form.Control  onBlur={handleRating} type="email" placeholder="rating" />
+                         <Form.Label className="text-white">Rating</Form.Label>
+                         <Form.Control className="mb-3 bg-transparent text-white container-input"   onBlur={handleRating} type="email" placeholder="YOUR RATING" />
                     </Form.Group>
 
-                    <Button onClick={handleSubmit}>Submit Review</Button>
+                    <Button className="w-50 mx-auto fs-6 " onClick={handleSubmit}>SUBMIT </Button>
                </Form>
 
               
-          </div>
+          </Container>
      );
 };
 

@@ -16,16 +16,20 @@ const MyOrder = () => {
           })
      },[])
      return (
-          <Container>
-               <Row>
-                    {
-                         orders.map(order=> 
-                         <ManageOrder
-                         key={order._id}
-                         order={order}
-                         ></ManageOrder>)   
-                    }
-               </Row>
+          <Container fluid className="card-style pt-4" >
+                <h1 className="header-text mt-3 mb-3">YOUR ORDERS ARE DISPLAYED HERE</h1>
+
+               <Container>  
+                    <Row className="dashboard-row">
+                         {
+                              orders.map(order=> 
+                              <ManageOrder
+                              key={order._id}
+                              order={order}
+                              ></ManageOrder>)   
+                         }
+                    </Row>
+               </Container>
           </Container>
      );
 };

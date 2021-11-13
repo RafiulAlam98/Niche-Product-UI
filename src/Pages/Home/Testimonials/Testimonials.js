@@ -6,7 +6,7 @@ const Testimonials = () => {
      return (
           <Container  className="testimonial-container pt-5 pb-2" fluid>
                <div className="">
-                         <h1 className="text-primary">WE ARE THE BEST</h1>
+                         <h1 className="header-text">WE ARE THE BEST</h1>
                </div>
                
                <Container>

@@ -1,0 +1,41 @@
+.link-container {
+     text-decoration: none;   
+     margin: 20px;
+     font-size: larger;
+     font-weight:600 ;
+}
+
+.link-container:hover{
+     color: brown;
+}
+
+
+@media only screen and (max-width: 688px) {
+    
+     .link-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          margin: 20px;
+     }
+     .link-container:hover{
+          color: brown;
+     }
+     
+
+   }
+   
+   @media only screen and (min-width: 689px) and (max-width: 992px) {
+     .link-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+     }
+     .link-container:hover{
+          color: brown;
+     }
+     
+
+   }

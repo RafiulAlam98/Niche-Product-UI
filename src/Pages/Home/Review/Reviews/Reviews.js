@@ -16,7 +16,7 @@ const Reviews = () => {
      },[])
      return (
           <Container className="review-style p-5" fluid >
-               <h1 className="text-primary mb-5 ">
+               <h1 className="header-text mb-5 ">
                REVIEW CATEGORY
                </h1>
                <Row>

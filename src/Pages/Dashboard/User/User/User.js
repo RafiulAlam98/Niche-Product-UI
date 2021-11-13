@@ -11,30 +11,39 @@ import {
 import Payment from '../Payment/Payment';
 import MyOrder from '../MyOrder/MyOrder';
 import Review from '../Review/Review';
-
+import './User.css'
+import { Col, Container, Row, Button } from 'react-bootstrap';
 
 
 const User = () => {
-     const {user,signOutUser} = useAuth()
+     const {signOutUser} = useAuth()
      let { path, url } = useRouteMatch();
      return (
-          <div>
-          <Link to={`${url}/payment`}>Payment</Link>
-          <Link to={`${url}/myOrders`}>My Orders</Link>
-          <Link to={`${url}/review`}>Review</Link>
-          <button onClick={signOutUser}> <Link to={`${url}/logout`}>Logout</Link></button>                                 
-          <Switch>
-               <Route path={`${path}/payment`}>
-                   <Payment></Payment>
-               </Route>
-               <Route path={`${path}/myOrders`}>
-                    <MyOrder></MyOrder>
-               </Route>
-               <Route path={`${path}/review`}>
-                   <Review></Review>
-               </Route>
-          </Switch>
-     </div>
+          <Container fluid className="pt-5">
+             <Row>
+                  <Col xs={12} sm={12} lg={12}>
+                    <Link className="link-container" to={`${url}/payment`}>PAYMENT</Link>
+                    <Link className="link-container" to={`${url}/myOrders`}>ORDERS</Link>
+                    <Link className="link-container" to={`${url}/review`}>REVIEW</Link>
+                    <Link className="link-container" to='/home'>HOME</Link>
+
+                    <Button  onClick={signOutUser} variant="dark" type="submit" className="text-warning ms-lg-3">
+                       SIGN OUT
+                    </Button>
+                  </Col>
+             </Row>                                 
+               <Switch>
+                    <Route path={`${path}/payment`}>
+                    <Payment></Payment>
+                    </Route>
+                    <Route path={`${path}/myOrders`}>
+                         <MyOrder></MyOrder>
+                    </Route>
+                    <Route path={`${path}/review`}>
+                    <Review></Review>
+                    </Route>
+               </Switch>
+          </Container>
      );
 };
 
