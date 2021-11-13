@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 
 const AddProducts = () => {
-          const { register, handleSubmit, formState: { errors } } = useForm();
+          const { register, handleSubmit,reset, formState: { errors } } = useForm();
 
 
           const onSubmit = data =>{
@@ -20,6 +20,10 @@ const AddProducts = () => {
                .then(data => {
                     if(data.insertedId){
                          alert("New Product Added Successfully.")
+                         reset(data)
+                    }
+                    else{
+                         alert('Bad Request')
                     }
                })
           };

@@ -21,6 +21,9 @@ const MakeAdmin = () => {
                     alert('User Added Role as Admin')
                     reset(data)
                }
+               else{
+                    alert('Bad Request')
+               }
           })
           
      };

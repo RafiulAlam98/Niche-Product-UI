@@ -13,15 +13,18 @@ const Review = () => {
      const handleName = (e) =>{
          console.log(e.target.value)
          setName(e.target.value)
+         e.target.value=''
      }
      const handleReview = (e) =>{
           console.log(e.target.value)
           setReviews(e.target.value)
+          e.target.value=''
      }
 
      const handleRating = (e) =>{
           console.log(e.target.value)
           setRating(e.target.value)
+          e.target.value=''
      }
 
      const handleSubmit = () =>{
