@@ -32,7 +32,7 @@ const DisplayOrder = (props) => {
      }
      return (
           <Col xs={12} md={6} lg={3}>
-               <div className="manage-container mt-2 mb-4">
+               <div className="card-style mt-5 mb-5 p-4 border border-secondary rounded-3 border-2">
                     <p>ID: {_id}</p>
                     <p>Email: {email}</p>
                     <p>Name: {name}</p>

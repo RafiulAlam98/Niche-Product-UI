@@ -14,15 +14,18 @@ const ManageProducts = () => {
           })
      },[])
      return (
-          <Container>
-               <Row>
-                   { 
-                        products.map(product => <ManageProduct 
-                        key={product._id}
-                        product={product}
-                        ></ManageProduct>)
-                    } 
-               </Row>
+          <Container className="card-style pt-5" fluid>
+               <h3 className="text-info mb-3">REMOVE PRODUCT</h3>
+               <Container>
+                    <Row>
+                    { 
+                         products.map(product => <ManageProduct 
+                         key={product._id}
+                         product={product}
+                         ></ManageProduct>)
+                         } 
+                    </Row>
+               </Container>
           </Container>
      );
 };

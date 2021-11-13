@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 
 const AddProducts = () => {
@@ -26,32 +27,31 @@ const AddProducts = () => {
 
 
      return (
-          <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column mx-5 w-50">
-         
-        
-     
-          <input placeholder="name" {...register("name", { required: true })} />
-         
-          <input placeholder="description" {...register("description", { required: true })} />
-         
-          <input placeholder="fuel" {...register("fuel", { required: true })} />
-         
-          <input placeholder="mile" {...register("mile", { required: true })} />
-         
-          <input placeholder="price" {...register("price", { required: true })} />
-         
-          <input placeholder="type" {...register("type", { required: true })} />
-         
-          <input placeholder="color" {...register("color", { required: true })} />
-         
-          <input placeholder="model" {...register("model", { required: true })} />
-         
-          <input placeholder="img" {...register("img", { required: true })} />
-         
-         
-          
-          <input type="submit" />
-        </form>
+         <Container>
+               <h3 className="text-info mb-3 mt-5">ADD LATEST PRODUCT</h3>
+               <form className="d-flex flex-column mt-5 justify-content-center mx-auto form-input" onSubmit={handleSubmit(onSubmit)} >
+                    
+                    <input className="mb-3 bg-transparent text-dark border-0 border-bottom container-input"  placeholder="name" {...register("name", { required: true })} />
+                    
+                    <input className="mb-3 bg-transparent text-dark border-0 border-bottom container-input"  placeholder="description" {...register("description", { required: true })} />
+                    
+                    <input className="mb-3 bg-transparent text-dark border-0 border-bottom container-input"  placeholder="fuel" {...register("fuel", { required: true })} />
+                    
+                    <input className="mb-3 bg-transparent text-dark border-0 border-bottom container-input"  placeholder="mile" {...register("mile", { required: true })} />
+                    
+                    <input className="mb-3 bg-transparent text-dark border-0 border-bottom container-input"  placeholder="price" {...register("price", { required: true })} />
+                    
+                    <input className="mb-3 bg-transparent text-dark border-0 border-bottom container-input"  placeholder="type" {...register("type", { required: true })} />
+                    
+                    <input className="mb-3 bg-transparent text-dark border-0 border-bottom container-input"  placeholder="color" {...register("color", { required: true })} />
+                    
+                    <input className="mb-3 bg-transparent text-dark border-0 border-bottom container-input"  placeholder="model" {...register("model", { required: true })} />
+                    
+                    <input className="mb-3 bg-transparent text-dark border-0 border-bottom container-input"  placeholder="img" {...register("img", { required: true })} />
+                     
+                    <input  className="bg-primary border-0 text-white fs-5 w-25 rounded-3 mx-auto" type="submit" />
+               </form>
+         </Container>
      );
 };
 

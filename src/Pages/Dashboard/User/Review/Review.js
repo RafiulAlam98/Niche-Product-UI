@@ -46,22 +46,22 @@ const Review = () => {
      return (
           <Container fluid className="pt-4">
 
-               <h2 className="header-text mt-3 mb-3 ">PLEASE MAKE A REVIEW </h2>
+               <h3 className="text-info mb-3">PLEASE MAKE A REVIEW </h3>
                  
-               <Form className="d-flex flex-column mt-3 justify-content-center mx-auto pb-4 px-3 form-input dashboard-row ">
+               <Form className="d-flex flex-column mt-3 justify-content-center mx-auto pb-4 px-3 form-input">
                     <Form.Group  controlId="exampleForm.ControlInput1">
                          <Form.Label className="text-white">Reviewer Name</Form.Label>
-                         <Form.Control className="mb-3 bg-transparent text-white container-input"   onBlur={handleName} type="email" placeholder="YOUR NAME" />
+                         <Form.Control className="mb-3 bg-transparent text-dark container-input"   onBlur={handleName} type="email" placeholder="YOUR NAME" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                          <Form.Label className="text-white">Example textarea</Form.Label>
-                         <Form.Control className="mb-3 bg-transparent  container-input"  onBlur={handleReview} as="textarea"  placeholder="YOUR REVIEW" rows={4} />
+                         <Form.Control className="mb-3 bg-transparent text-dark  container-input"  onBlur={handleReview} as="textarea"  placeholder="YOUR REVIEW" rows={4} />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                          <Form.Label className="text-white">Rating</Form.Label>
-                         <Form.Control className="mb-3 bg-transparent text-white container-input"   onBlur={handleRating} type="email" placeholder="YOUR RATING" />
+                         <Form.Control className="mb-3 bg-transparent text-dark container-input"   onBlur={handleRating} type="email" placeholder="YOUR RATING" />
                     </Form.Group>
 
                     <Button className="w-50 mx-auto fs-6 " onClick={handleSubmit}>SUBMIT </Button>

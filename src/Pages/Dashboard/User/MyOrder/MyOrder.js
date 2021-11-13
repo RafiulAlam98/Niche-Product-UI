@@ -17,10 +17,10 @@ const MyOrder = () => {
      },[])
      return (
           <Container fluid className="card-style pt-4" >
-                <h1 className="header-text mt-3 mb-3">YOUR ORDERS ARE DISPLAYED HERE</h1>
+                <h3 className="text-info mb-3">YOUR ORDERS ARE DISPLAYED HERE</h3>
 
                <Container>  
-                    <Row className="dashboard-row">
+                    <Row >
                          {
                               orders.map(order=> 
                               <ManageOrder

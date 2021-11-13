@@ -4,21 +4,20 @@ import { Card, Col, Button } from 'react-bootstrap';
 const ManageOrder = ({order}) => {
      console.log(order)
      const {_id, address, email, name, brand, Status} = order
-     // const arr = [order]
      const handleDelete = id =>{
           const proceed = window.confirm('Are You proceed to Cancel the Order?')
-          console.log(id)
-          fetch(`https://polar-depths-02085.herokuapp.com/users/${id}`,{
-               method: "DELETE",
-          })
-          .then(res => res.json())
-          .then(data => {
-               console.log(data)
-               if(data.deletedCount > 0){
-                    // const remainingOrder = arr.filter(order => order._id !== id )
-                    alert('deleted successfully')
-               }
-          })
+          if(proceed){
+                    fetch(`https://polar-depths-02085.herokuapp.com/users/${id}`,{
+                    method: "DELETE",
+               })
+               .then(res => res.json())
+               .then(data => {
+                    console.log(data)
+                    if(data.deletedCount > 0){
+                         alert('deleted successfully')
+                    }
+               })
+          }
      }
 
      return (

@@ -63,8 +63,8 @@ const useFirebase = () =>{
                
           })
           .catch((error) => {
-               console.log(error.message)
-               setAuthError(error.message)
+               console.log(error)
+               setAuthError(error)
           });
      }
 

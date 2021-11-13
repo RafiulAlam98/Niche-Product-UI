@@ -5,28 +5,31 @@ const ManageProduct = ({product}) => {
      const {name,  color, description, _id, img,price,model} = product
 
      const handleDelete = id =>{
-          fetch(`https://polar-depths-02085.herokuapp.com/products/${id}`,{
-               method:"DELETE"
-          })
-          .then(res => res.json())
-          .then(data => {
-               console.log(data)
-          })
+          const proceed = window.confirm('Are You sure to remove this product?')
+          if(proceed){
+               fetch(`https://polar-depths-02085.herokuapp.com/products/${id}`,{
+                    method:"DELETE"
+               })
+               .then(res => res.json())
+               .then(data => {
+                    // console.log(data)
+                    if(data.deletedCount > 0){    
+                         alert('deleted successfully')
+                    }
+               })
+          }
      }
      return (
-          <Col xs={12} md={12} lg={12}>
-                <Card className="mt-5 mb-5">
+          <Col xs={12} md={12} lg={6}>
+                <Card className="card-style mt-3 mb-5 ">
                    <Card.Img className="img-fluid" src={img}></Card.Img>
-                   <Card.Body>
-                   <Card.Title className="fw-bold mb-3">{name}</Card.Title>
-                   <Card.Title className=" fw-bold mb-3">{color}</Card.Title>
-                   <Card.Subtitle className="mb-2  mb-3"><span className="text-dark">{description}</span> {description}</Card.Subtitle>
-                   <Card.Subtitle className="mb-2">{price}</Card.Subtitle>
-                   <Card.Subtitle className="mb-2">Status: {model}</Card.Subtitle>
-                   {/* <Card.Text className="mb-2 text-color mb-3">
-                        <span className="text-dark">Booking For: </span>    {place}
-                   </Card.Text> */}
-                   <Button onClick={() => handleDelete(_id)} variant="dark" className=" text-warning" >Cancel Purchase</Button>
+                   <Card.Body className="d-flex flex-column justify-content-start align-items-start">
+                         <Card.Title className="fw-bold  card-text card-detail">{name}</Card.Title>
+                         <Card.Subtitle className=" fw-bold mb-3 mt-4 card-text">{color}</Card.Subtitle>
+                         <Card.Subtitle className="mb-3 card-text">{description}</Card.Subtitle>
+                         <Card.Subtitle className="mb-3 card-text">{price}</Card.Subtitle>
+                         <Card.Subtitle className="mb-3 card-text">{model}</Card.Subtitle>
+                         <Button onClick={() => handleDelete(_id)} variant="dark" className=" text-warning" >REMOVE</Button>
                    </Card.Body>
               </Card>
           </Col>

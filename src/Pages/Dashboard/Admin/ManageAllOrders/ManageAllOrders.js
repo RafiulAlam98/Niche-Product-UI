@@ -14,15 +14,17 @@ const ManageAllOrders = () => {
           })
      },[])
      return (
-          <Container>
-               <h2>this is manage all orders page</h2>
-               <Row>
-                    {
-                    allOrders.map(allOrder => <DisplayOrder 
-                    key={allOrder._id}
-                    allOrder={allOrder}></DisplayOrder> ) 
-                    }
-               </Row>
+          <Container fluid className="card-style pt-5">
+               <h3 className="text-info mb-3">UPDATE PRODUCT STATUS</h3>
+              <Container>
+                    <Row >
+                         {
+                         allOrders.map(allOrder => <DisplayOrder 
+                         key={allOrder._id}
+                         allOrder={allOrder}></DisplayOrder> ) 
+                         }
+                    </Row>
+              </Container>
           </Container>
      );
 };

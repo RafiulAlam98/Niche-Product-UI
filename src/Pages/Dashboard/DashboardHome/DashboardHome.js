@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from 'react';
-
 import Admin from '../Admin/Admin/Admin';
 import User from './../User/User/User';
 import useAuth from './../../../hooks/useAuth/useAuth';

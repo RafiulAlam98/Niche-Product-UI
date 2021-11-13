@@ -12,21 +12,33 @@ import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddProducts from '../AddProducts/AddProducts';
 import ManageProducts from '../ManageProducts/ManageProducts';
+import { Col, Container, Row, Button } from 'react-bootstrap';
 
 const Admin = () => {
-     const {user,signOutUser} = useAuth()
+     const {signOutUser} = useAuth()
      let { path, url } = useRouteMatch();
 
 
      return (
-          <div>
-               <Link to={`${url}/manageAllOrder`}>Manage All Order</Link>
-               <Link to={`${url}/makeAdmin`}>Make Admin</Link>
-               <Link to={`${url}/addProducts`}>Add Product</Link>
-               <Link to={`${url}/manageProduct`}>Manage Product</Link>
-               <button onClick={signOutUser}> 
-               <Link to={`${url}/logout`}>Logout</Link>
-               </button> 
+          <Container fluid className="pt-5">
+              <Container>
+                    <h1 className="header-text mb-3">ADMIN PANEL</h1>
+              </Container>
+            
+               <Container>
+                    <Row className="dashboard-row">
+                         <Col xs={12} sm={12} lg={12} className="mt-3">
+                              <Link className="link-container" to={`${url}/manageAllOrder`}>ORDERS</Link>
+                              <Link className="link-container" to={`${url}/makeAdmin`}>ADMIN</Link>
+                              <Link className="link-container" to={`${url}/addProducts`}>PRODUCT</Link>
+                              <Link className="link-container" to={`${url}/manageProduct`}>MANAGES</Link>
+                              <Link className="link-container" to='/home'>HOME</Link>
+                              <Button  onClick={signOutUser} variant="primary" type="submit" className="text-white  ms-lg-3">
+                              SIGN OUT
+                              </Button>
+                         </Col>
+                    </Row>
+               </Container>
 
                <Switch>
                               <Route path={`${path}/manageAllOrder`}>
@@ -43,7 +55,7 @@ const Admin = () => {
                               </Route>
                          </Switch>
 
-          </div>
+          </Container>
      );
 };
 
