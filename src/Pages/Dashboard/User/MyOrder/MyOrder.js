@@ -8,12 +8,14 @@ const MyOrder = () => {
      const [orders, setOrders] = useState([])
     
      useEffect(()=>{
-          fetch(`https://polar-depths-02085.herokuapp.com/users/${user.email}`)
-          .then(res => res.json())
-          .then(data => {
-               console.log(data)
-               setOrders(data)
-          })
+          fetch(
+            `https://niche-product-server-lemon.vercel.app/users/${user.email}`
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              setOrders(data);
+            });
      },[])
      return (
           <Container fluid className="card-style pt-4" >

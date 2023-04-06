@@ -8,23 +8,25 @@ const MakeAdmin = () => {
 
 
      const onSubmit = data => {
-          fetch(`https://polar-depths-02085.herokuapp.com/users/admin/${data.email}`, {
-               method:'PUT',
-               headers:{
-                    'content-type': 'application/json'
-               },
-               body:JSON.stringify(data)
-          })
-          .then(res=>res.json())
-          .then(data => {
-               if(data.modifiedCount > 0){
-                    alert('User Added Role as Admin')
-                    reset(data)
-               }
-               else{
-                    alert('Bad Request')
-               }
-          })
+          fetch(
+            `https://niche-product-server-lemon.vercel.app/users/admin/${data.email}`,
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(data),
+            }
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.modifiedCount > 0) {
+                alert("User Added Role as Admin");
+                reset(data);
+              } else {
+                alert("Bad Request");
+              }
+            });
           
      };
 

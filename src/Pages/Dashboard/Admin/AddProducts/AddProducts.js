@@ -8,24 +8,25 @@ const AddProducts = () => {
 
           const onSubmit = data =>{
                console.log(data)
-               fetch('https://polar-depths-02085.herokuapp.com/add/products', {
-                    method:'POST',
-                    headers:{
-                         'content-type':'application/json'
-                    },
-                    body:JSON.stringify(data)
-
-               })
-               .then(res => res.json())
-               .then(data => {
-                    if(data.insertedId){
-                         alert("New Product Added Successfully.")
-                         reset(data)
-                    }
-                    else{
-                         alert('Bad Request')
-                    }
-               })
+               fetch(
+                 "https://niche-product-server-lemon.vercel.app/add/products",
+                 {
+                   method: "POST",
+                   headers: {
+                     "content-type": "application/json",
+                   },
+                   body: JSON.stringify(data),
+                 }
+               )
+                 .then((res) => res.json())
+                 .then((data) => {
+                   if (data.insertedId) {
+                     alert("New Product Added Successfully.");
+                     reset(data);
+                   } else {
+                     alert("Bad Request");
+                   }
+                 });
           };
 
 

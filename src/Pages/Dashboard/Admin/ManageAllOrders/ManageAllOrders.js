@@ -6,12 +6,12 @@ const ManageAllOrders = () => {
      const [allOrders,setAllOrders] = useState([])
 
      useEffect(()=>{
-          fetch('https://polar-depths-02085.herokuapp.com/users')
-          .then(res => res.json())
-          .then(data => {
-               console.log(data)
-               setAllOrders(data)
-          })
+          fetch("https://niche-product-server-lemon.vercel.app/users")
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              setAllOrders(data);
+            });
      },[])
      return (
           <Container fluid className="card-style pt-5">

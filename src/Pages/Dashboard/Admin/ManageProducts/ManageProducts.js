@@ -6,12 +6,12 @@ const ManageProducts = () => {
      const [products, setProducts] = useState([])
 
      useEffect(()=>{
-          fetch('https://polar-depths-02085.herokuapp.com/products')
-          .then(res => res.json())
-          .then(data => {
-               console.log(data)
-               setProducts(data)
-          })
+          fetch("https://niche-product-server-lemon.vercel.app/products")
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              setProducts(data);
+            });
      },[])
      return (
           <Container className="card-style pt-5" fluid>
